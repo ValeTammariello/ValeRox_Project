@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeZero Digital Studio | Odontoiatria Digitale e Moderna</title>
+    <meta name="description" content="TypeZero Digital Studio: eccellenza in odontoiatria digitale. Cure dentali all'avanguardia, estetica dentale e prevenzione. Contattaci a valerio.tammariello@typezero.it">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #0d8abc;
+            --primary-dark: #0a6a94;
+            --secondary: #f8f9fa;
+            --accent: #ff7e30;
+            --text-dark: #333;
+            --text-light: #666;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header e Navigazione */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin-bottom: 0;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            color: var(--white);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 138, 188, 0.9), rgba(13, 138, 188, 0.8)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .button-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .button-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Servizi */
+        .services {
+            padding: 100px 0;
+            background-color: var(--secondary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background-color: rgba(13, 138, 188, 0.1);
+            color: var(--primary);
+            font-size: 2.5rem;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        /* Perché Sceglierci */
+        .why-us {
+            padding: 100px 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Prenotazione */
+        .booking {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .booking h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .booking p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            text-align: left;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / span 2;
+        }
+        
+        .booking-form input, .booking-form select, .booking-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .booking-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-tooth logo-icon"></i>
+                    <div class="logo-text">TypeZero<span> Digital Studio</span></div>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servizi">Servizi</a></li>
+                    <li><a href="#perche-noi">Tecnologia</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+                
+                <a href="mailto:valerio.tammariello@typezero.it" class="cta-button">Contattaci Subito</a>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>L'Odontoiatria Digitale al Servizio del Tuo Sorriso</h1>
+            <p>Benvenuti in TypeZero Digital Studio. Utilizziamo le tecnologie più avanzate per garantirti trattamenti precisi, veloci e indolori per la salute della tua bocca.</p>
+            <div class="hero-buttons">
+                <a href="#prenota" class="cta-button">Prenota una Consulenza</a>
+                <a href="#servizi" class="cta-button button-secondary">Scopri i Servizi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servizi -->
+    <section class="services" id="servizi">
+        <div class="container">
+            <div class="section-title">
+                <h2>I Nostri Servizi Digitali</h2>
+                <p>Specialisti in soluzioni odontoiatriche moderne, dall'estetica alla chirurgia guidata.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Diagnostica Digitale</h3>
+                        <p>Scanner intraorali e radiologia 3D per una diagnosi immediata e senza il fastidio delle impronte tradizionali.</p>
+                        <a href="mailto:valerio.tammariello@typezero.it" class="cta-button">Info Servizio</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Estetica Dentale</h3>
+                        <p>Digital Smile Design per progettare e visualizzare il tuo nuovo sorriso prima ancora di iniziare il trattamento.</p>
+                        <a href="mailto:valerio.tammariello@typezero.it" class="cta-button">Info Servizio</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-align-center"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ortodonzia Invisibile</h3>
+                        <p>Allineatori trasparenti progettati digitalmente per raddrizzare i tuoi denti in modo discreto ed efficace.</p>
+                        <a href="mailto:valerio.tammariello@typezero.it" class="cta-button">Info Servizio</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Implantologia Guidata</h3>
+                        <p>Chirurgia computer-assistita per il posizionamento degli impianti con precisione millimetrica e minor trauma.</p>
+                        <a href="mailto:valerio.tammariello@typezero.it" class="cta-button">Info Servizio</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-teeth-open"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Sbiancamento Laser</h3>
+                        <p>Tecnologia laser di ultima generazione per un sorriso luminoso in una sola seduta professionale.</p>
+                        <a href="mailto:valerio.tammariello@typezero.it" class="cta-button">Info Servizio</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Igiene Professionale</h3>
+                        <p>Protocolli avanzati di igiene orale e prevenzione per mantenere i tuoi denti sani nel tempo.</p>
+                        <a href="mailto:valerio.tammariello@typezero.it" class="cta-button">Info Servizio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perché Sceglierci -->
+    <section class="why-us" id="perche-noi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Innovazione e Professionalità</h2>
+                <p>Perché affidarsi a TypeZero Digital Studio per la tua salute orale.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-microscope"></i>
+                    <h3>Digital Workflow</h3>
+                    <p>Processi interamente digitalizzati per ridurre i tempi di attesa e aumentare l'accuratezza clinica.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-user-md"></i>
+                    <h3>Esperti Qualificati</h3>
+                    <p>Un team guidato dalla passione e dall'aggiornamento costante sulle nuove frontiere dell'odontoiatria.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Comfort del Paziente</h3>
+                    <p>Protocolli studiati per minimizzare lo stress e il dolore, rendendo ogni seduta un'esperienza positiva.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-certificate"></i>
+                    <h3>Qualità Certificata</h3>
+                    <p>Utilizziamo esclusivamente materiali bio-compatibili e tecnologie approvate dai più alti standard.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Prenotazione -->
+    <section class="booking" id="prenota">
+        <div class="container">
+            <h2>Richiedi un Appuntamento Digitale</h2>
+            <p>Compila il modulo sottostante o scrivi a <strong>valerio.tammariello@typezero.it</strong>. Ti risponderemo in tempi brevissimi.</p>
+            
+            <form class="booking-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Nome e Cognome" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" placeholder="Telefono" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <select required>
+                        <option value="" disabled selected>Servizio d'interesse</option>
+                        <option value="visita">Prima Visita / Check-up</option>
+                        <option value="estetica">Estetica e Smile Design</option>
+                        <option value="ortodonzia">Ortodonzia Invisibile</option>
+                        <option value="impianti">Implantologia Digitale</option>
+                        <option value="altro">Altro</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <textarea placeholder="Descrivi brevemente la tua necessità..."></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <button type="submit" class="cta-button">Invia Richiesta a TypeZero</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contatti">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TypeZero Digital Studio</h3>
+                    <p>L'eccellenza dell'odontoiatria digitale. La nostra missione è trasformare il tuo sorriso attraverso l'innovazione e la cura del dettaglio.</p>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> Sede in fase di definizione</li>
+                        <li><i class="fas fa-phone"></i> Contattaci via Email</li>
+                        <li><i class="fas fa-envelope"></i> valerio.tammariello@typezero.it</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Orari e Disponibilità</h3>
+                    <ul class="footer-links">
+                        <li>Lunedì - Venerdì: Su appuntamento</li>
+                        <li>Sabato: Su appuntamento</li>
+                        <li>Domenica: Chiuso</li>
+                        <li>Risposta email: Entro 24h</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Link Rapidi</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#servizi">Servizi Digitali</a></li>
+                        <li><a href="#perche-noi">Tecnologia</a></li>
+                        <li><a href="mailto:valerio.tammariello@typezero.it">Contatti Email</a></li>
+                        <li><a href="#prenota">Prenota Visita</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 TypeZero Digital Studio. Tutti i diritti riservati. Email: valerio.tammariello@typezero.it</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Menu mobile
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scroll per i link interni
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Chiudi menu mobile se aperto
+                    navLinks.classList.remove('active');
+                }
+            });
+        });
+        
+        // Gestione form
+        const bookingForm = document.querySelector('.booking-form');
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Grazie per aver contattato TypeZero Digital Studio! La tua richiesta è stata inviata a valerio.tammariello@typezero.it. Ti risponderemo al più presto.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
