@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeZero Digital Studio | Odontoiatria Digitale a undefined</title>
+    <meta name="description" content="TypeZero Digital Studio: eccellenza in odontoiatria digitale a undefined. Trattamenti avanzati, impianti e ortodonzia con tecnologie di ultima generazione.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #0056b3;
+            --primary-dark: #003d7a;
+            --secondary: #f8f9fa;
+            --accent: #00d4ff;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --white: #ffffff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header e Navigazione */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-icon {
+            color: var(--primary);
+            font-size: 2rem;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+        
+        .logo-text span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .cta-button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.85), rgba(0, 61, 122, 0.75)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 180px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .button-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+        
+        .button-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Servizi */
+        .services {
+            padding: 100px 0;
+            background-color: var(--secondary);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background-color: rgba(0, 86, 179, 0.1);
+            color: var(--primary);
+            font-size: 2.5rem;
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--text-dark);
+        }
+        
+        .service-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        /* Perché Sceglierci */
+        .why-us {
+            padding: 100px 0;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .feature {
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .feature i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        /* CTA Prenotazione */
+        .booking {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .booking h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .booking p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        
+        .booking-form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            text-align: left;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / span 2;
+        }
+        
+        .booking-form input, .booking-form select, .booking-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        .booking-form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: var(--white);
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-column p {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+        
+        .contact-info {
+            list-style: none;
+        }
+        
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .booking-form {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-group.full-width {
+                grid-column: 1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-microchip logo-icon"></i>
+                    <div class="logo-text">TypeZero <span>Digital Studio</span></div>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#servizi">Servizi Digitali</a></li>
+                    <li><a href="#perche-noi">Innovazione</a></li>
+                    <li><a href="#contatti">Contatti</a></li>
+                </ul>
+                
+                <a href="mailto:undefined" class="cta-button">Contattaci</a>
+                
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>L'Odontoiatria Digitale a undefined</h1>
+            <p>TypeZero Digital Studio ridefinisce l'esperienza dal dentista grazie all'uso di tecnologie 3D e flussi di lavoro digitali per risultati più precisi, rapidi e confortevoli.</p>
+            <div class="hero-buttons">
+                <a href="#prenota" class="cta-button">Prenota Appuntamento</a>
+                <a href="#servizi" class="cta-button button-secondary">I Nostri Servizi</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servizi -->
+    <section class="services" id="servizi">
+        <div class="container">
+            <div class="section-title">
+                <h2>Servizi Odontoiatrici Avanzati</h2>
+                <p>Presso il nostro studio a undefined, utilizziamo scanner intraorali e diagnostica digitale per la massima accuratezza.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-scan"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Scansione 3D Intraorale</h3>
+                        <p>Addio alle fastidiose impronte tradizionali. Utilizziamo scanner laser per modelli digitali perfetti dei tuoi denti.</p>
+                        <a href="mailto:undefined" class="cta-button">Info Email</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Implantologia Computer-Assistita</h3>
+                        <p>Pianificazione chirurgica virtuale per inserire impianti con precisione millimetrica e minor invasività.</p>
+                        <a href="mailto:undefined" class="cta-button">Info Email</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-align-center"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Ortodonzia Invisibile</h3>
+                        <p>Allineatori trasparenti progettati digitalmente per raddrizzare il tuo sorriso in modo discreto ed efficace.</p>
+                        <a href="mailto:undefined" class="cta-button">Info Email</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Digital Smile Design</h3>
+                        <p>Visualizza il risultato finale del tuo nuovo sorriso prima ancora di iniziare il trattamento estetico.</p>
+                        <a href="mailto:undefined" class="cta-button">Info Email</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-virus"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Igiene Digitale</h3>
+                        <p>Protocolli avanzati di prevenzione e monitoraggio digitale della salute gengivale nel tempo.</p>
+                        <a href="mailto:undefined" class="cta-button">Info Email</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Tele-Odontoiatria</h3>
+                        <p>Consulenze online e monitoraggio remoto per ridurre gli spostamenti e ottimizzare i tempi di cura.</p>
+                        <a href="mailto:undefined" class="cta-button">Info Email</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perché Sceglierci -->
+    <section class="why-us" id="perche-noi">
+        <div class="container">
+            <div class="section-title">
+                <h2>L'Innovazione di TypeZero</h2>
+                <p>Scegliere TypeZero Digital Studio a undefined significa affidarsi a un nuovo standard di cura.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-binary"></i>
+                    <h3>Workflow 100% Digital</h3>
+                    <p>Dalla diagnosi alla protesi finale, tutto viene gestito con software di ultima generazione.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-clock"></i>
+                    <h3>Risparmio di Tempo</h3>
+                    <p>Procedure più veloci e un numero ridotto di sedute grazie all'efficienza del digitale.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-fingerprint"></i>
+                    <h3>Personalizzazione Estrema</h3>
+                    <p>Ogni restauro è unico e progettato su misura per l'anatomia del tuo viso.</p>
+                </div>
+                
+                <div class="feature">
+                    <i class="fas fa-medal"></i>
+                    <h3>Alta Qualità</h3>
+                    <p>Materiali certificati e tecnologie testate per garantire la massima durata nel tempo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Prenotazione -->
+    <section class="booking" id="prenota">
+        <div class="container">
+            <h2>Prenota la Tua Consulenza Digitale</h2>
+            <p>Fai il primo passo verso un sorriso perfetto a undefined. Inviaci una richiesta e ti ricontatteremo.</p>
+            
+            <form class="booking-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Nome e Cognome" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="tel" placeholder="Telefono" required>
+                </div>
+                
+                <div class="form-group">
+                    <input type="email" placeholder="Email" required>
+                </div>
+                
+                <div class="form-group">
+                    <select required>
+                        <option value="" disabled selected>Interessato a...</option>
+                        <option value="estetica">Estetica Digitale</option>
+                        <option value="impianti">Implantologia</option>
+                        <option value="allineatori">Allineatori Invisibili</option>
+                        <option value="controllo">Check-up Completo</option>
+                    </select>
+                </div>
+                
+                <div class="form-group full-width">
+                    <textarea placeholder="Descrivi brevemente le tue esigenze..."></textarea>
+                </div>
+                
+                <div class="form-group full-width">
+                    <button type="submit" class="cta-button">Invia Richiesta</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contatti">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>TypeZero Digital Studio</h3>
+                    <p>Punto di riferimento per l'odontoiatria moderna a undefined. Tecnologia, etica e innovazione al servizio del tuo sorriso.</p>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> undefined, undefined</li>
+                        <li><i class="fas fa-phone"></i> undefined</li>
+                        <li><i class="fas fa-envelope"></i> undefined</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Orari Studio</h3>
+                    <ul class="footer-links">
+                        <li>Lunedì - Venerdì: Su appuntamento</li>
+                        <li>Sabato: 09:00 - 13:00</li>
+                        <li>Domenica: Chiuso</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Link Diretti</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#servizi">Servizi</a></li>
+                        <li><a href="#perche-noi">Innovazione</a></li>
+                        <li><a href="mailto:undefined">Contatto Email</a></li>
+                        <li><a href="#prenota">Prenota Ora</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 TypeZero Digital Studio - undefined. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Menu mobile
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if(targetId !== '#') {
+                    e.preventDefault();
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Form Handler
+        const bookingForm = document.querySelector('.booking-form');
+        bookingForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Messaggio inviato a undefined. Verrai ricontattato al più presto dal nostro staff di undefined.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
